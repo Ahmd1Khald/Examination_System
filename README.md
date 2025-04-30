@@ -68,7 +68,7 @@ The **Examination System Database** is a SQL Server-based project designed to ma
 
 ## Project Deliverables
 
-- **Entity-Relationship Diagram (ERD)**: [https://drive.google.com/file/d/1mOuU3TBOPHmVBzEAlRuEp6CaV-17BGPC/view?usp=sharing]
+- **Entity-Relationship Diagram (ERD)**: [https://drive.google.com/file/d/1sZwqCzH0OtN62IxFx6YWAVOIWDvNcgmH/view?usp=sharing]
 - **SQL Database Files**: Tables, indexes, and constraints.
 - **SQL Scripts**:
   - Individual team member contributions.
@@ -78,13 +78,13 @@ The **Examination System Database** is a SQL Server-based project designed to ma
 
 ## Contributors
 
-- [Abdalrhman gad]
-- [Amr kasnban]
-- [Abdalaziz taha]
-- [Hossam mamdouh]
-- [Mahmoud abdalrady]
-- [Esraa saied]
+- [Ahmed Khaled Sayed]
+- [Khaled Maher]
+- [Ahmed Taher]
+- [Ahmed Khaled Noor]
+- [Alaa Ayesh]
+- [Hajer Ahmed]
 
 ## Contact
 
-For any inquiries or contributions, please reach out to [Gadwork44@gmail.com].
+For any inquiries or contributions, please reach out to [ahmed.khaled.sayed2000@gmail.com].
