@@ -1,14 +1,13 @@
 Create table StudentCourse(
-courseID int,
-studentID int,
-studentDegree int,
+CourseID int,
+StudentID int,
+StdCrsDegree int,
 
-constraint PK_StudentCourseTable primary key(courseID,studentID),
+constraint PK_StudentCourseTable primary key(CourseID,StudentID),
 
-constraint FK_StudentCourse_Course_courseID foreign key (courseID)
+constraint FK_StudentCourse_Course_courseID foreign key (CourseID)
 references Course(ID),
 
-constraint FK_StudentCourse_Student_studentID foreign key (studentID)
+constraint FK_StudentCourse_Student_studentID foreign key (StudentID)
 references Student(ID),
-
 )

@@ -1,16 +1,14 @@
 create table Track(
-    ID int primary key,
+    ID int primary key identity(100,1),
     [Name] varchar(50) not null,
-    DeptID INT,
-    TMID INT,
+    DeptID INT not null,
+    TMID INT not null,
 
-    FOREIGN KEY (DeptID) REFERENCES Department(ID),
-    FOREIGN KEY (TMID) REFERENCES TrainingManager(ID)
+	constraint FK_Track_Department_DeptID
+	foreign key (DeptID)
+	references Department(ID),
+
+	constraint FK_Track_TrainingManager_TMID
+	foreign key (TMID)
+	references TrainingManager(ID),
 );
-
-INSERT INTO Track (ID, [name] ,DeptID, TMID) VALUES
-(1, '.Net', 1, 1),
-(2, 'Java', 1, 2),
-(3, 'Python', 2, 1),
-(4, 'Front-End', 2, 2),
-(5, 'Mobile', 3, 3);

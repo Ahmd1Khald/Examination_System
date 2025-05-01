@@ -2,10 +2,10 @@ Create table Student(
 ID int identity(1,1),
 FName nvarchar(20),
 LName nvarchar(20),
-UserID int null,
-IntakeID int null,
-BranchID int null,
-TMID int null,
+UserID int not null,
+IntakeID int not null,
+BranchID int not null,
+TMID int not null,
 
 constraint pk_Student_ID primary key(ID),
 
@@ -17,4 +17,7 @@ references Intake(ID),
 
 constraint FK_Student_Branch_branchID foreign key (branchID) 
 references Branch(ID),
+
+constraint FK_Student_TrainingManager_TMID foreign key (TMID) 
+references TrainingManager(ID),
 )

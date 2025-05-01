@@ -1,13 +1,9 @@
 CREATE TABLE TrainingManager (
     ID INT PRIMARY KEY,
-    Email VARCHAR(100),
-    [Name] VARCHAR(50),
+    Email VARCHAR(100) not null,
+    [Name] VARCHAR(50) not null,
     UserID INT,
-    FOREIGN KEY (UserID) REFERENCES UserTable(ID)
+
+	constraint FK_TrainingManager_UserTable_UserID
+	foreign key (UserID) references UserTable(ID),
 );
-INSERT INTO TrainingManager (ID, email, [name], UserID) VALUES
-(1, 'EngSara@gmail.com', 'Sara', 2),
-(2, 'EngSarwit@gmail.com', 'Sarwit', 3),
-(3, 'EngTony@gmail.com', 'Tony', 4),
-(4, 'EngMirihan@gmail.com', 'Mirihan', 5),
-(5, 'EngAlaa@gmail.com.com', 'Alaa', 6);

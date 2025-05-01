@@ -3,7 +3,7 @@ create table StudentAnswer
 	QuestionID int not null,
 	ExamID int not null,
 	StdID int not null,
-	Answer nvarchar(200) null,
+	Answer nvarchar(Max) null,
 
 	constraint PK_StudentAnswer primary key (QuestionID,ExamID,StdID),
 

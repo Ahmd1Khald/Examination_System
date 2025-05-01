@@ -7,5 +7,5 @@ primary key (QuestionID,[Type]),
 
 constraint FK_QuestionType_QuestionPool_QuestionID 
 foreign key (QuestionID) 
-references QuestionPool(ID),
+references QuestionPool(ID) on delete cascade,
 )

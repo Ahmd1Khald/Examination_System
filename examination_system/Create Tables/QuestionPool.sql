@@ -1,5 +1,5 @@
 create table  QuestionPool(
 ID int not null primary key,
-correctAnswer text not null,
-Question text not null
+correctAnswer NVARCHAR(MAX) not null,
+Question NVARCHAR(MAX) not null
 )
