@@ -9,5 +9,5 @@ CREATE TABLE StudentExam (
 	references Exam(ID),
 
 	constraint FK_StudentExam_Student_StdID foreign key (StdID) 
-	references Student(ID),
+	references Person.Student(ID),
 );

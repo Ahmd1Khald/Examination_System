@@ -17,7 +17,7 @@ create table QuestionPick
 
 	constraint FK_QuestionPick_Instructor_InstID 
 	foreign key (InstID) 
-	references Instructor(ID) on delete cascade,
+	references Person.Instructor(ID) on delete cascade,
 
 	constraint Check_Degree check(Degree >= 0),
 )
