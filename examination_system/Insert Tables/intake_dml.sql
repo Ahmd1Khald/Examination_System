@@ -1,4 +1,3 @@
---DML intake
 
 use [db18494];
 go

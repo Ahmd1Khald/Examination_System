@@ -1,10 +1,5 @@
---DML branch
-
-use [db18494];
-go
-
-insert into dbo.branch (name, location, tmid)
-values 
+INSERT INTO dbo.Branch ([Name] ,[Location], TMID)
+VALUES 
     ('main branch', 'nasr city, cairo', 1),
     ('alex branch', 'smouha, alexandria', 2),
     ('giza branch', 'dokki, giza', 3),
