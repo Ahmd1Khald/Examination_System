@@ -8,6 +8,7 @@ create table Exam
 	CourseID int not null,
 
 	constraint PK_Exam_ID primary key (ID),
-	constraint FK_Exam_Course_CourseID foreign key (CourseID) 
+	constraint FK_Exam_Course_CourseID 
+	foreign key (CourseID) 
 	references Course(ID) on delete cascade
 )

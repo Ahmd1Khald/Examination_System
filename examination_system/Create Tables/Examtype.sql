@@ -1,7 +1,11 @@
 Create table ExamType(
-ExamID int,
-ExamType nvarchar(20),
+ExamID int not null,
+[Type] nvarchar(20) not null,
 
-constraint FK_ExamType_Exam_ExamID foreign key (ExamID) 
-references Exam(ID),
+constraint PK_ExamType
+primary key (ExamID,[Type]),
+
+constraint FK_ExamType_Exam_ExamID
+foreign key (ExamID) 
+references Exam(ID) on delete cascade
 )

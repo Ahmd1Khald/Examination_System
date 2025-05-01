@@ -1,12 +1,14 @@
 Create table InstructorCourse(
-InstructorID int,
-CourseID int,
+InstructorID int not null,
+CourseID int not null,
 
 constraint pk_InstructorCourse primary key (InstructorID, CourseID),
 
-constraint FK_InstructorCourse_Instructor_InstructorID foreign key (InstructorID) 
+constraint FK_InstructorCourse_Instructor_InstructorID
+foreign key (InstructorID) 
 references Instructor(ID),
 
-constraint FK_InstructorCourse_Course_CourseID foreign key (CourseID) 
+constraint FK_InstructorCourse_Course_CourseID
+foreign key (CourseID) 
 references Course(ID),
 )

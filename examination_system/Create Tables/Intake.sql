@@ -1,7 +1,9 @@
 create table Intake (
-ID int not null primary key,
+ID int primary key identity(1,1),
 Number int not null,
 TMID int not null,
 
-foreign key (ID) references TrainingManager(ID)
+constraint FK_Intake_TrainingManager_ID 
+foreign key (TMID)
+references TrainingManager(ID)
 )
