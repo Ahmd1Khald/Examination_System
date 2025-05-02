@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\examination_system",
-    "\\examination_system\\Create Tables",
-    "\\examination_system\\Insert Tables"
+    "\\examination_system\\Triggers"
   ],
-  "SelectedNode": "\\examination_system\\Insert Tables\\Collected Course-Exam-Question Insertions.sql",
+  "SelectedNode": "\\examination_system\\Triggers\\trg_Check_StudentExam_Degree.sql",
   "PreviewInSolutionExplorer": false
 }
