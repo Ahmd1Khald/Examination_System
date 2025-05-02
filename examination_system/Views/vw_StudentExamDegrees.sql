@@ -7,7 +7,7 @@ SELECT
 FROM Person.Student S
 JOIN StudentExam SE ON SE.StdID = S.ID
 JOIN StudentCourse SC ON SC.StudentID = S.ID 
-join Exam on Exam.CourseID = SC.CourseID
+JOIN Exam on Exam.CourseID = SC.CourseID
 JOIN Course C ON C.ID = SC.CourseID
 
 
