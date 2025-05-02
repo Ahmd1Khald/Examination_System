@@ -68,7 +68,7 @@ The **Examination System Database** is a SQL Server-based project designed to ma
 
 ## Project Deliverables
 
-- **Entity-Relationship Diagram (ERD)**: [https://drive.google.com/file/d/1sZwqCzH0OtN62IxFx6YWAVOIWDvNcgmH/view?usp=sharing]
+- **Entity-Relationship Diagram (ERD)**: [https://drive.google.com/file/d/1R76v6raqPbK2OT9OGyn2cQL83R5Md_ja/view]
 - **SQL Database Files**: Tables, indexes, and constraints.
 - **SQL Scripts**:
   - Individual team member contributions.
