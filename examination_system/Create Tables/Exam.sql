@@ -12,3 +12,9 @@ create table Exam
 	foreign key (CourseID) 
 	references Course(ID) on delete cascade
 )
+
+alter table Exam 
+add Date date not null default('2025-01-01')
+
+
+
