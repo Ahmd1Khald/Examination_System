@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Create Tables"
   ],
-  "SelectedNode": "\\Insert Tables",
+  "SelectedNode": "\\Create Tables\\Usertable.sql",
   "PreviewInSolutionExplorer": false
 }
