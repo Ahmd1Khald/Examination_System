@@ -1,4 +1,4 @@
-
+﻿
 
 INSERT INTO Course ([Name], [Description], MaxDegree, MinDegree)
 VALUES
@@ -402,5 +402,46 @@ INSERT INTO StudentExam (ExamID, StdID, StdExamDegree) VALUES
 (16, 54, 64),
 (17, 55, 70),
 (18, 56, 85);
+go
+
+--  Full Stack .NET
+INSERT INTO TrackCourse VALUES (100, 11);
+INSERT INTO TrackCourse VALUES (100, 18);
+INSERT INTO TrackCourse VALUES (100, 20); 
+
+--  Full Stack Java 
+INSERT INTO TrackCourse VALUES (101, 11); 
+INSERT INTO TrackCourse VALUES (101, 13); 
+INSERT INTO TrackCourse VALUES (101, 18); 
+INSERT INTO TrackCourse VALUES (101, 19); 
+INSERT INTO TrackCourse VALUES (101, 20); 
+
+--  Data Analysis
+INSERT INTO TrackCourse VALUES (102, 11); 
+INSERT INTO TrackCourse VALUES (102, 13); 
+INSERT INTO TrackCourse VALUES (102, 15); 
+INSERT INTO TrackCourse VALUES (102, 20); 
+
+--  Cyber Security
+INSERT INTO TrackCourse VALUES (103, 11); 
+INSERT INTO TrackCourse VALUES (103, 13); 
+INSERT INTO TrackCourse VALUES (103, 16); 
+INSERT INTO TrackCourse VALUES (103, 21); 
+
+-- 🟪 AI & Machine Learning
+INSERT INTO TrackCourse VALUES (104, 11); 
+INSERT INTO TrackCourse VALUES (104, 15); 
+INSERT INTO TrackCourse VALUES (104, 17); 
+INSERT INTO TrackCourse VALUES (104, 20); 
+go
+
+
+INSERT INTO InstructorCourse (InstructorID, CourseID) VALUES
+(1, 11), (1, 12), (1, 18), (1, 20),
+(2, 11), (2, 13), (2, 19), (2, 20),
+(3, 15), (3, 17), (3, 20),
+(4, 13), (4, 16), (4, 21),
+(5, 11), (5, 15), (5, 17),
+(6, 12), (6, 14), (6, 18);
 go
 
