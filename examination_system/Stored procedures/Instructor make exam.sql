@@ -4,18 +4,20 @@ SELECT name AS UserName, type_desc AS UserType
 FROM sys.database_principals
 WHERE type IN ('S', 'U', 'G') -- S = SQL user, U = Windows user, G = Windows group
   AND name NOT IN ('dbo', 'guest', 'INFORMATION_SCHEMA', 'sys');
-
 go
-create proc sp_StudentExam @fname nvarchar(20),@lname nvarchar(20),@examID int,@date date,@srart_time Time(0),@end_time Time(0)
+
+
+create proc sp_StudentExam @fname nvarchar(20),@lname nvarchar(20),@examID int,@date date,@start_time Time(0),@end_time Time(0)
 as
 begin
-	select @fname = FName, @lname = LName, @examID = E.ID, @date = E.[Date],@srart_time = E.Start_Time,@end_time = E.End_Time
+	select FName = @fname, LName = @lname, E.ID = @examID, E.[Date] = @date,E.Start_Time = @start_time ,E.End_Time = @end_time
 	from Person.Student S inner join StudentExam SE
 	on S.ID = SE.StdID
 	inner join Exam E
 	on E.ID = SE.ExamID
 end
 go
+
 
 
 -- f
@@ -33,8 +35,8 @@ return
 		on E.ID = SE.ExamID
 		where SE.StdID = @StdID
 )
-
 go
+
 create or alter proc AllowStdToExam @StdID int
 as
 	begin
@@ -42,7 +44,7 @@ as
 			select 1 
 			from Exam E
 			inner join StudentExam SE on E.ID = SE.ExamID
-			where SE.StdID = @StdID
+			where SE.StdID = 58
 			  and E.[Date] = CAST(GETDATE() as date)
 			  and CAST(GETDATE() as Time(0)) between E.Start_Time and E.End_Time
 		)
@@ -56,4 +58,5 @@ as
 			end
 	end
 
-AllowStdToExam 48
+AllowStdToExam 58
+
