@@ -8,7 +8,3 @@ ID int identity(100,10),
 constraint pk_UserTable_ID primary key(ID),
 constraint unq_UserTable_Email unique ([Email]),
 )
-
-ALTER TABLE Person.UserTable
-ADD CONSTRAINT chk_UserRole 
-CHECK ([Role] IN ('Training Manager', 'Student', 'Instructor'));

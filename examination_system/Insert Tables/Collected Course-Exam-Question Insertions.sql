@@ -1,4 +1,4 @@
-
+﻿
 
 INSERT INTO Course ([Name], [Description], MaxDegree, MinDegree)
 VALUES
@@ -52,7 +52,6 @@ VALUES
 (2022, '11:00', '13:00', 100, 19),
 (2022, '13:30', '15:30', 100, 20),
 (2022, '09:30', '11:30', 100, 21);
-
 go
 
 INSERT INTO ExamType (ExamID, [Type])
@@ -240,5 +239,208 @@ VALUES
 (48, 28, 6, 4),
 (49, 29, 1, 2),
 (50, 30, 2, 3);
+go
+
+INSERT INTO StudentAnswer (QuestionID, ExamID, StdID, Answer) VALUES
+(1, 1, 48, 'A'),
+(2, 1, 49, 'B'),
+(3, 2, 50, 'False'),
+(4, 2, 51, 'True'),
+(5, 3, 52, 'OOP is based on objects'),
+(6, 3, 53, 'C'),
+(7, 4, 54, 'Encapsulation'),
+(8, 4, 55, 'False'),
+(9, 5, 56, 'Inheritance allows reusability'),
+(10, 5, 57, 'B'),
+(11, 6, 58, 'True'),
+(12, 6, 59, 'A'),
+(13, 7, 60, 'LINQ queries data'),
+(14, 7, 61, 'C'),
+(15, 8, 62, 'False'),
+(16, 8, 63, 'B'),
+(17, 9, 64, 'Encapsulation hides data'),
+(18, 9, 65, 'A'),
+(19, 10, 66, 'True'),
+(20, 10, 67, 'C'),
+(21, 11, 68, 'Multi-threading improves performance'),
+(22, 11, 48, 'False'),
+(23, 12, 49, 'A'),
+(24, 12, 50, 'Databases store structured data'),
+(25, 13, 51, 'True'),
+(26, 13, 52, 'C'),
+(27, 14, 53, 'Functions are reusable blocks'),
+(28, 14, 54, 'False'),
+(29, 15, 55, 'Pointers are used for memory access'),
+(30, 15, 56, 'True'),
+(31, 16, 57, 'B'),
+(32, 16, 58, 'Exception handling improves reliability'),
+(33, 17, 59, 'False'),
+(34, 17, 60, 'A'),
+(35, 18, 61, 'Interfaces provide abstraction'),
+(36, 18, 62, 'True'),
+(37, 19, 63, 'C'),
+(38, 19, 64, 'False'),
+(39, 20, 65, 'SQL is used for querying data'),
+(40, 20, 66, 'A'),
+(41, 21, 67, 'Encapsulation keeps data safe'),
+(42, 21, 68, 'B'),
+(43, 22, 48, 'True'),
+(44, 22, 49, 'C'),
+(45, 23, 50, 'Exception handling uses try-catch'),
+(46, 23, 51, 'A'),
+(47, 24, 52, 'False'),
+(48, 24, 53, 'Database normalization removes redundancy'),
+(49, 25, 54, 'B'),
+(50, 25, 55, 'Pointers are risky but powerful');
+go
+
+
+INSERT INTO StudentCourse (CourseID, StudentID, StdCrsDegree) VALUES
+(11, 48, 85),
+(12, 49, 78),
+(13, 50, 92),
+(14, 51, 70),
+(15, 52, 88),
+(16, 53, 60),
+(17, 54, 73),
+(18, 55, 91),
+(19, 56, 65),
+(20, 57, 80),
+(21, 58, 77),
+(11, 59, 83),
+(12, 60, 68),
+(13, 61, 90),
+(14, 62, 72),
+(15, 63, 96),
+(16, 64, 59),
+(17, 65, 81),
+(18, 66, 87),
+(19, 67, 66),
+(20, 68, 93),
+(21, 48, 75),
+(11, 49, 82),
+(12, 50, 89),
+(13, 51, 77),
+(14, 52, 84),
+(15, 53, 60),
+(16, 54, 91),
+(17, 55, 71),
+(18, 56, 80),
+(19, 57, 67),
+(20, 58, 94),
+(21, 59, 79),
+(11, 60, 88),
+(12, 61, 62),
+(13, 62, 95),
+(14, 63, 74),
+(15, 64, 81),
+(16, 65, 85),
+(17, 66, 70),
+(18, 67, 90),
+(19, 68, 63),
+(20, 48, 87),
+(21, 49, 76),
+(11, 50, 69),
+(12, 51, 93),
+(13, 52, 58),
+(14, 53, 86),
+(15, 54, 80),
+(16, 55, 78);
+go
+
+
+INSERT INTO StudentExam (ExamID, StdID, StdExamDegree) VALUES
+(1, 48, 85),
+(2, 49, 40),
+(3, 50, 30),
+(4, 51, 75),
+(5, 52, 60),
+(6, 53, 45),
+(7, 54, 55),
+(8, 55, 68),
+(9, 56, 70),
+(10, 57, 50),
+(11, 58, 80),
+(12, 59, 73),
+(13, 60, 90),
+(14, 61, 65),
+(15, 62, 77),
+(16, 63, 56),
+(17, 64, 61),
+(18, 65, 83),
+(19, 66, 70),
+(20, 67, 88),
+(21, 68, 79),
+(22, 48, 42),
+(23, 49, 69),
+(24, 50, 60),
+(25, 51, 58),
+(26, 52, 87),
+(27, 53, 40),
+(28, 54, 55),
+(29, 55, 61),
+(30, 56, 76),
+(31, 57, 64),
+(32, 58, 90),
+(33, 59, 50),
+(1, 60, 81),
+(2, 61, 72),
+(3, 62, 68),
+(4, 63, 79),
+(5, 64, 91),
+(6, 65, 86),
+(7, 66, 59),
+(8, 67, 70),
+(9, 68, 66),
+(10, 48, 88),
+(11, 49, 73),
+(12, 50, 54),
+(13, 51, 68),
+(14, 52, 76),
+(15, 53, 90),
+(16, 54, 64),
+(17, 55, 70),
+(18, 56, 85);
+go
+
+--  Full Stack .NET
+INSERT INTO TrackCourse VALUES (100, 11);
+INSERT INTO TrackCourse VALUES (100, 18);
+INSERT INTO TrackCourse VALUES (100, 20); 
+
+--  Full Stack Java 
+INSERT INTO TrackCourse VALUES (101, 11); 
+INSERT INTO TrackCourse VALUES (101, 13); 
+INSERT INTO TrackCourse VALUES (101, 18); 
+INSERT INTO TrackCourse VALUES (101, 19); 
+INSERT INTO TrackCourse VALUES (101, 20); 
+
+--  Data Analysis
+INSERT INTO TrackCourse VALUES (102, 11); 
+INSERT INTO TrackCourse VALUES (102, 13); 
+INSERT INTO TrackCourse VALUES (102, 15); 
+INSERT INTO TrackCourse VALUES (102, 20); 
+
+--  Cyber Security
+INSERT INTO TrackCourse VALUES (103, 11); 
+INSERT INTO TrackCourse VALUES (103, 13); 
+INSERT INTO TrackCourse VALUES (103, 16); 
+INSERT INTO TrackCourse VALUES (103, 21); 
+
+-- 🟪 AI & Machine Learning
+INSERT INTO TrackCourse VALUES (104, 11); 
+INSERT INTO TrackCourse VALUES (104, 15); 
+INSERT INTO TrackCourse VALUES (104, 17); 
+INSERT INTO TrackCourse VALUES (104, 20); 
+go
+
+
+INSERT INTO InstructorCourse (InstructorID, CourseID) VALUES
+(1, 11), (1, 12), (1, 18), (1, 20),
+(2, 11), (2, 13), (2, 19), (2, 20),
+(3, 15), (3, 17), (3, 20),
+(4, 13), (4, 16), (4, 21),
+(5, 11), (5, 15), (5, 17),
+(6, 12), (6, 14), (6, 18);
 go
 

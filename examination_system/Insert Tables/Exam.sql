@@ -38,3 +38,14 @@ VALUES
 (2022, '09:30', '11:30', 100, 21);
 
 go
+
+-- insertion of date col data
+UPDATE Exam SET [Date] = '2024-06-15' WHERE ID BETWEEN 1 AND 11;
+UPDATE Exam SET [Date] = '2023-06-15' WHERE ID BETWEEN 12 AND 22;
+UPDATE Exam SET [Date] = '2022-06-15' WHERE ID BETWEEN 23 AND 33;
+
+
+--update Exam Degrees
+UPDATE Exam SET TotalDegree = 20 WHERE ID BETWEEN 1 AND 11;
+UPDATE Exam SET TotalDegree = 10 WHERE ID BETWEEN 12 AND 22;
+UPDATE Exam SET TotalDegree = 30 WHERE ID BETWEEN 23 AND 33;
