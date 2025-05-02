@@ -14,4 +14,4 @@ BEGIN
 END;
 
 
-PC_GetBranchFromTMName 'ahmed'
+PC_GetBranchFromTMName 'ahm'
