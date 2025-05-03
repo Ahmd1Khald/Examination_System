@@ -1,7 +1,4 @@
 
-use [db18494];
-go
-
 insert into dbo.intake (number, tmid)
 values
     (43, 1),

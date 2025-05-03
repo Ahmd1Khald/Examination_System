@@ -1,7 +1,3 @@
---DML IntakeTrack
-
-use [db18494];
-go
 
 insert into dbo.IntakeTrack (IntakeID, TrackID)
 values

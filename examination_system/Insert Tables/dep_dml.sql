@@ -1,7 +1,4 @@
----DML department
 
-use [db18494];
-go
 
 insert into dbo.department (name)
 values 

@@ -1,7 +1,3 @@
---DML track 
-
-use [db18494];
-go
 
 insert into dbo.track (name, deptid, tmid)
 values
