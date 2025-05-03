@@ -11,3 +11,7 @@ CREATE TABLE StudentExam (
 	constraint FK_StudentExam_Student_StdID foreign key (StdID) 
 	references Person.Student(ID),
 );
+
+ALTER TABLE StudentExam
+ADD CONSTRAINT CK_StudentExam_Degree_Valid
+CHECK (StdExamDegree >= 0);
