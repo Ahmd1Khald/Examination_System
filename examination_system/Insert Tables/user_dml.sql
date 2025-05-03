@@ -53,4 +53,4 @@ VALUES
 (N'salim gawish',      N'salim121',   N'Student',      N'salim.gawish@example.com'),
 (N'huda refaat',       N'huda232',    N'Instructor',   N'huda.refaat@example.com'),
 (N'mahmoud ghoneim',   N'mahmoud343', N'Student',      N'mahmoud.ghoneim@example.com'),
-(N'lamia reda',        N'lamia454',   N'Training Manager', N'lamia.reda@example.com'); -- ✅ no comma here
+(N'lamia reda',        N'lamia454',   N'Training Manager', N'lamia.reda@example.com');

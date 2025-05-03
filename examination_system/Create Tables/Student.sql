@@ -1,5 +1,5 @@
-Create table Student(
-ID int identity(1,1),
+Create table Person.Student(
+ID int not Null,
 FName nvarchar(20),
 LName nvarchar(20),
 UserID int not null,
