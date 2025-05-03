@@ -8,5 +8,5 @@ constraint pk_Branch_ID primary key(ID),
 
 constraint FK_BranchTable_TrainingManager_TMID 
 foreign key (TMID) 
-references TrainingManager(ID)
+references Person.TrainingManager(ID)
 )

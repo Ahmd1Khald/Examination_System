@@ -1,4 +1,4 @@
-﻿INSERT INTO Person.[usertable] ([name], [password], [role], [email])
+INSERT INTO Person.[usertable] ([name], [password], [role], [email])
 VALUES
 (N'ahmed hassan',      N'ahmed123',   N'Student',      N'ahmed.hassan@example.com'),
 (N'sara mahmoud',      N'sara456',    N'Student',      N'sara.mahmoud@example.com'),
@@ -54,3 +54,16 @@ VALUES
 (N'huda refaat',       N'huda232',    N'Instructor',   N'huda.refaat@example.com'),
 (N'mahmoud ghoneim',   N'mahmoud343', N'Student',      N'mahmoud.ghoneim@example.com'),
 (N'lamia reda',        N'lamia454',   N'Training Manager', N'lamia.reda@example.com');
+
+
+go
+
+BULK INSERT Person.TrainingManager
+FROM 'D:\ITI\SQL Project\Files\TM data.csv'
+WITH (
+    FORMAT = 'CSV',
+    FIRSTROW = 2, -- Skip header
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n',
+    TABLOCK
+);

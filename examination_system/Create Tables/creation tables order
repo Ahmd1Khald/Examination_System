@@ -1,0 +1,23 @@
+Creation Order
+Based on the topological sort, the correct order to create the tables is:
+
+[Person].[UserTable]
+[dbo].[Department]
+[dbo].[Course]
+[dbo].[QuestionPool]
+[Person].[TrainingManager]
+[Person].[Instructor]
+[dbo].[Exam]
+[dbo].[QuestionType]
+[dbo].[Branch]
+[dbo].[Intake]
+[dbo].[Track]
+[dbo].[ExamType]
+[dbo].[InstructorCourse]
+[dbo].[IntakeTrack]
+[dbo].[TrackCourse]
+[Person].[Student]
+[dbo].[QuestionPick]
+[dbo].[StudentAnswer]
+[dbo].[StudentCourse]
+[dbo].[StudentExam]

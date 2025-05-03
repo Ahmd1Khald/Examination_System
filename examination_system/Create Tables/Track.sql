@@ -10,5 +10,5 @@ create table Track(
 
 	constraint FK_Track_TrainingManager_TMID
 	foreign key (TMID)
-	references TrainingManager(ID),
+	references Person.TrainingManager(ID),
 );

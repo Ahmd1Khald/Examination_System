@@ -5,5 +5,5 @@ TMID int not null,
 
 constraint FK_Intake_TrainingManager_ID 
 foreign key (TMID)
-references TrainingManager(ID)
+references Person.TrainingManager(ID)
 )
