@@ -78,7 +78,12 @@ The join logic connects StudentExam → Exam → Course to get the maximum allow
 You can test this trigger with statements like:
 
 sql
--- This should fail if the course max degree is less than 100*/
+-- This should fail if the course max degree is less than 100
+
 UPDATE dbo.StudentExam 
 SET StdExamDegree = 200 
 WHERE ExamID = 1 AND StdID = 60;
+*/
+
+
+

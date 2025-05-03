@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\examination_system",
-    "\\examination_system\\Triggers"
+    "\\examination_system\\indexes"
   ],
-  "SelectedNode": "\\examination_system\\Triggers\\trg_Check_StudentExam_Degree.sql",
+  "SelectedNode": "\\examination_system\\indexes\\inx_StudentExam.sql",
   "PreviewInSolutionExplorer": false
 }
