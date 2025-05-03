@@ -406,6 +406,16 @@ INSERT INTO StudentExam (ExamID, StdID, StdExamDegree,courseid) VALUES
 (18, 56, 85,7);
 go
 
+UPDATE SE
+SET SE.StdExamDegree = 
+    CASE 
+        WHEN SE.StdExamDegree > E.TotalDegree 
+            THEN FLOOR((CAST(SE.StdExamDegree AS FLOAT) / 100) * E.TotalDegree)
+        ELSE SE.StdExamDegree
+    END
+FROM StudentExam SE
+JOIN Exam E ON SE.ExamID = E.ID;
+
 --  Full Stack .NET
 INSERT INTO TrackCourse VALUES (100, 11);
 INSERT INTO TrackCourse VALUES (100, 18);
