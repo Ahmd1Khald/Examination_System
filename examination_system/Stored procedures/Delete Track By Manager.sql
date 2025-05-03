@@ -1,31 +1,23 @@
+﻿---------------------------Delete Track-------------------------------
 CREATE OR ALTER PROCEDURE usp_DeleteTrack
-    @TrackID INT
+    @track_id INT
 AS
 BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
 
- 
-        IF IS_ROLEMEMBER('TrainingManager') = 0
+        IF USER!='db18494_TrainingManager'
         BEGIN
-            RAISERROR('Access Denied! Only Training Managers can delete tracks.', 16, 1);
+            PRINT('Access Denied! Only Training Managers can delete tracks.');
             RETURN;
         END;
 
-        IF NOT EXISTS (SELECT 1 FROM Track WHERE ID = @TrackID)
-        BEGIN
-            RAISERROR('Track not found!', 16, 1);
-            RETURN;
-        END;
+        DELETE FROM TRACKCOURSE 
+        WHERE TrackID = @track_id;
 
-        DELETE FROM TrackCourse 
-        WHERE TrackID = @TrackID;
 
-		DELETE FROM IntakeTrack 
-        WHERE TrackID = @TrackID;
-  
         DELETE FROM Track 
-        WHERE ID= @TrackID;
+        WHERE ID = @track_id;
 
         COMMIT TRANSACTION;
     END TRY
@@ -35,6 +27,6 @@ BEGIN
     END CATCH;
 END;
 
+----------------------check delete---------------------------------
 
--------------------------------check delete -------------------------------
-EXEC usp_DeleteTrack @TrackID = 101;
+EXEC usp_DeleteTrack @StudentID = 74;
