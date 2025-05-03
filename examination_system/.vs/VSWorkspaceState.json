@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Functions",
-    "\\Stored procedures"
+    "\\Insert Tables"
   ],
-  "SelectedNode": "\\Stored procedures\\Instructor make exam.sql",
+  "SelectedNode": "\\Insert Tables\\Course.sql",
   "PreviewInSolutionExplorer": false
 }
