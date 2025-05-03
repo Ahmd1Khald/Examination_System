@@ -48,42 +48,10 @@ BEGIN
     END
 END;
 
-
-
------------------------------------------------------*
-/*How This Trigger Works:
-It fires AFTER INSERT or UPDATE operations on the StudentExam table.
-
-It checks if any inserted/updated record has a StdExamDegree that exceeds the MaxDegree from the related course (through the Exam table).
-
-If a violation is found:
-
-It gathers details about the violating student and course
-
-Raises a descriptive error message with the student name, attempted degree, max degree, and course name
-
-Rolls back the transaction to prevent the invalid data from being saved
-
-If no violations are found, the operation proceeds normally.
-
-Additional Notes:
-The trigger handles multiple row operations (both single and bulk inserts/updates).
-
-It provides a clear error message to help identify and fix the issue.
-
-The rollback ensures data integrity is maintained.
-
-The join logic connects StudentExam → Exam → Course to get the maximum allowed degree.
-
-You can test this trigger with statements like:
-
-sql
--- This should fail if the course max degree is less than 100
-
+/*
 UPDATE dbo.StudentExam 
 SET StdExamDegree = 200 
 WHERE ExamID = 1 AND StdID = 60;
 */
-
 
 
