@@ -1,7 +1,4 @@
 
-
-
-
 create or alter proc sp_CreateExamAndType
 	@ExamType nvarchar(20),
 	@date date,

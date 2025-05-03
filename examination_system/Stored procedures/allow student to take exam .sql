@@ -6,7 +6,7 @@ as
 			select 1 
 			from Exam E
 			inner join StudentExam SE on E.ID = SE.ExamID
-			where SE.StdID = 58
+			where SE.StdID = @StdID
 			  and E.[Date] = CAST(GETDATE() as date)
 			  and CAST(GETDATE() as Time(0)) between E.Start_Time and E.End_Time
 		)
@@ -20,4 +20,4 @@ as
 			end
 	end
 
-AllowStdToExam 58
+AllowStdToExam 51
