@@ -1,0 +1,63 @@
+Insertion Order
+Based on the dependency analysis from the table creation order, the correct order for inserting data into the [db18494] database tables is:
+
+[Person].[UserTable]:
+No foreign keys.
+Provides ID values referenced by [Person].[TrainingManager], [Person].[Instructor], [Person].[Student].
+[dbo].[Department]:
+No foreign keys.
+Provides ID values referenced by [dbo].[Track].
+[dbo].[Course]:
+No foreign keys.
+Provides ID values referenced by [dbo].[Exam], [dbo].[InstructorCourse], [dbo].[StudentCourse], [dbo].[StudentExam], [dbo].[TrackCourse].
+[dbo].[QuestionPool]:
+No foreign keys.
+Provides ID values referenced by [dbo].[QuestionPick], [dbo].[QuestionType], [dbo].[StudentAnswer].
+[Person].[TrainingManager]:
+Foreign Key: UserID ? [Person].[UserTable](ID).
+Provides ID values referenced by [dbo].[Branch], [dbo].[Intake], [dbo].[Track], [Person].[Student].
+[Person].[Instructor]:
+Foreign Key: userID ? [Person].[UserTable](ID).
+Provides ID values referenced by [dbo].[InstructorCourse], [dbo].[QuestionPick].
+[dbo].[Exam]:
+Foreign Key: CourseID ? [dbo].[Course](ID).
+Provides ID values referenced by [dbo].[ExamType], [dbo].[QuestionPick], [dbo].[StudentAnswer], [dbo].[StudentExam].
+[dbo].[QuestionType]:
+Foreign Key: QuestionID ? [dbo].[QuestionPool](ID).
+No dependencies on other tables for insertion.
+[dbo].[Branch]:
+Foreign Key: TMID ? [Person].[TrainingManager](ID).
+Provides ID values referenced by [Person].[Student].
+[dbo].[Intake]:
+Foreign Key: TMID ? [Person].[TrainingManager](ID).
+Provides ID values referenced by [dbo].[IntakeTrack], [Person].[Student].
+[dbo].[Track]:
+Foreign Keys: DeptID ? [dbo].[Department](ID), TMID ? [Person].[TrainingManager](ID).
+Provides ID values referenced by [dbo].[IntakeTrack], [dbo].[TrackCourse].
+[dbo].[ExamType]:
+Foreign Key: ExamID ? [dbo].[Exam](ID).
+No dependencies on other tables for insertion.
+[dbo].[InstructorCourse]:
+Foreign Keys: CourseID ? [dbo].[Course](ID), InstructorID ? [Person].[Instructor](ID).
+No dependencies on other tables for insertion.
+[dbo].[IntakeTrack]:
+Foreign Keys: IntakeID ? [dbo].[Intake](ID), TrackID ? [dbo].[Track](ID).
+No dependencies on other tables for insertion.
+[dbo].[TrackCourse]:
+Foreign Keys: TrackID ? [dbo].[Track](ID), CourseID ? [dbo].[Course](ID).
+No dependencies on other tables for insertion.
+[Person].[Student]:
+Foreign Keys: UserID ? [Person].[UserTable](ID), IntakeID ? [dbo].[Intake](ID), BranchID ? [dbo].[Branch](ID), TMID ? [Person].[TrainingManager](ID).
+Provides ID values referenced by [dbo].[StudentAnswer], [dbo].[StudentCourse], [dbo].[StudentExam].
+[dbo].[QuestionPick]:
+Foreign Keys: QuestionID ? [dbo].[QuestionPool](ID), ExamID ? [dbo].[Exam](ID), InstID ? [Person].[Instructor](ID).
+No dependencies on other tables for insertion.
+[dbo].[StudentAnswer]:
+Foreign Keys: QuestionID ? [dbo].[QuestionPool](ID), ExamID ? [dbo].[Exam](ID), StdID ? [Person].[Student](ID).
+No dependencies on other tables for insertion.
+[dbo].[StudentCourse]:
+Foreign Keys: CourseID ? [dbo].[Course](ID), StudentID ? [Person].[Student](ID).
+No dependencies on other tables for insertion.
+[dbo].[StudentExam]:
+Foreign Keys: ExamID ? [dbo].[Exam](ID), StdID ? [Person].[Student](ID), CourseID ? [dbo].[Course](ID).
+No dependencies on other tables for insertion.
