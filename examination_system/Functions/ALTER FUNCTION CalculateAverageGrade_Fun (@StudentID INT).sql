@@ -1,12 +1,16 @@
-ALTER FUNCTION CalculateAverageGrade_Fun (@StudentID INT)
-RETURNS DECIMAL(5,2)
-AS
-BEGIN
-    DECLARE @AvgGrade DECIMAL(5,2);
+------------------------calc Fun avarage degrees-------------
 
-    SELECT @AvgGrade = AVG(student_exam_Degree)
-    FROM StudentExam
-    WHERE StdID = @StudentID;
+CREATE OR ALTER FUNCTION CalculateAverageGrade_Fun  
+    (@ExamID INT)  
+RETURNS DECIMAL(5,2)  
+AS  
+BEGIN  
+    DECLARE @AvgGrade DECIMAL(5,2);  
+    SELECT @AvgGrade = AVG(StdExamDegree)  
+    FROM StudentExam  
+    WHERE ExamID = @ExamID;  
+    RETURN @AvgGrade;  
+END;  
 
-    RETURN @AvgGrade;
-END;
+--------------------------check fun-----------------------------
+select dbo.CalculateAverageGrade_Fun(2) AS [Avarage degrees]

@@ -1,5 +1,5 @@
-create or alter function [dbo].[GetBestStudentsPerCourse]
-(@CourseID int)
+create or alter function [dbo].[GetBestStudentsPerExam]
+(@ExamID int)
 returns @TopStudents table 
 (
     StudentID int,
@@ -7,26 +7,27 @@ returns @TopStudents table
 )
 as
 begin
-    with StudentExams as (
-        select distinct sa.StdID, e.ID as ExamID
-        from [dbo].[StudentAnswer] sa
-        inner join [dbo].[Exam] e on sa.ExamID = e.ID
-        where e.CourseID = @CourseID
-    )
+    -- Validate ExamID exists
+    if not exists (select 1 from [dbo].[Exam] where ID = @ExamID)
+    begin
+        return;
+    end
+
+    -- Calculate total degree for each student who took the exam
     insert into @TopStudents (StudentID, TotalDegree)
-    select top 10 
-        se.StdID,
-        sum([dbo].[Calculate_Student_Degree](se.StdID, se.ExamID)) as TotalDegree
-    from StudentExams se
-    group by se.StdID
-    having sum([dbo].[Calculate_Student_Degree](se.StdID, se.ExamID)) > 0
-    order by sum([dbo].[Calculate_Student_Degree](se.StdID, se.ExamID)) desc;
-    
+    select 
+        se.StdID as StudentID,
+        coalesce(se.StdExamDegree, 0) as TotalDegree
+    from [dbo].[StudentExam] se
+    inner join [dbo].[Exam] e on se.ExamID = e.ID
+    inner join [dbo].[StudentCourse] sc on se.StdID = sc.StudentID 
+        and e.CourseID = sc.CourseID
+    where se.ExamID = @ExamID
+        and se.StdExamDegree > 0
+    order by se.StdExamDegree desc;
+
     return;
 end;
 
-select * 
-from [dbo].[GetBestStudentsPerCourse](11);
 
-select * 
-from [dbo].[GetBestStudentsPerCourse](12);
+select * from [dbo].[GetBestStudentsPerExam](2);
