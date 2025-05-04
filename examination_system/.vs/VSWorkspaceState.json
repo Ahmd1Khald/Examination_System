@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Insert Tables"
+    "\\Functions",
+    "\\Stored procedures",
+    "\\Views"
   ],
-  "SelectedNode": "\\Insert Tables\\Collected Course-Exam-Question Insertions.sql",
+  "SelectedNode": "\\Functions\\GetExamQSForStd.sql",
   "PreviewInSolutionExplorer": false
 }
