@@ -21,4 +21,3 @@ begin
      return isnull (@ToTalDegree,0)
 end
 
-Select dbo.Calculate_Student_Degree (62,8) AS TotalDegree;
