@@ -1,16 +1,20 @@
-------------------------calc Fun avarage degrees-------------
+------------------------calc Fun Max degrees-------------
 
-CREATE OR ALTER FUNCTION CalculateAverageGrade_Fun  
-    (@ExamID INT)  
-RETURNS DECIMAL(5,2)  
-AS  
-BEGIN  
-    DECLARE @AvgGrade DECIMAL(5,2);  
-    SELECT @AvgGrade = AVG(StdExamDegree)  
-    FROM StudentExam  
-    WHERE ExamID = @ExamID;  
-    RETURN @AvgGrade;  
-END;  
+CREATE OR ALTER FUNCTION CalculateMaxGrade_Fun
+(
+    @ExamID INT
+)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @MaxGrade INT;
+
+    SELECT @MaxGrade = MAX(student_exam_Degree)
+    FROM StudentExam
+    WHERE ExamID = @ExamID;
+
+    RETURN ISNULL(@MaxGrade, 0); 
+END;
 
 --------------------------check fun-----------------------------
-select dbo.CalculateAverageGrade_Fun(2) AS [Avarage degrees]
+SELECT dbo.CalculateMaxGrade_Fun(2) AS [Max Degree];
