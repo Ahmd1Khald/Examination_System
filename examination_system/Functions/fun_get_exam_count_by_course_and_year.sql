@@ -13,4 +13,7 @@ begin
     return isnull(@ExamCount, 0);
 end;
 
-select [dbo].[GetExamCountByCourseAndYear](101, 2023) as ExamCount;
+select [dbo].[GetExamCountByCourseAndYear](2, 2023) as ExamCount;
+
+select * from Course where id = 2
+select * from Exam where id = 2

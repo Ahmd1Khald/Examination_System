@@ -11,4 +11,4 @@ BEGIN
 
     RETURN ISNULL(@CorrectAnswers, 0)
 END
-SELECT dbo.Count_Student_CorrectAnswers(1, 49) AS CorrectAnswersCount;
+SELECT dbo.Count_Student_CorrectAnswers(2, 3) AS CorrectAnswersCount;

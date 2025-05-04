@@ -29,4 +29,4 @@ return
 
 
 select * 
-from dbo.get_student_degrees_by_course(11);
+from dbo.get_student_degrees_by_course(2);

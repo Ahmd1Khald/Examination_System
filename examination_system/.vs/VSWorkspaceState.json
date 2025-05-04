@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Functions",
-    "\\Stored procedures",
-    "\\Views"
+    "\\Functions"
   ],
-  "SelectedNode": "\\Functions\\GetExamQSForStd.sql",
+  "SelectedNode": "\\EXEC Func.sql",
   "PreviewInSolutionExplorer": false
 }
