@@ -294,7 +294,9 @@ return
 select * from FN_GetCourseByTrack(4)
 -----------------------------------------------------------------
 
-create proc sp_AssignCourseToInstructor @InstID int,@CourseID int
+create proc sp_AssignCourseToInstructor 
+		@InstID int,
+		@CourseID int
 as
 	begin
 		if not exists (
@@ -595,4 +597,94 @@ EXEC sp_UpdateCorrectAnswer
 EXEC sp_UpdateCorrectAnswer
 	@QuestionID = 37,
 	@newCorrectAnswer = 'HTML'
+
+-------------------------------------------------------
+
+create or alter proc sp_StoreStudentAnswer
+		@QID int,
+		@ExamID int,
+		@StdID int,
+		@Answer nvarchar(max)
+as
+	begin
+		declare @Type nvarchar(20) = (select Type
+									from QuestionType
+									where QuestionID = @QID)
+		if(@Type = 'True/False'and @Answer not in('True','False'))
+			THROW 50000, 'Must answer with True or false', 1;
+		if not exists(
+				select 1
+				from StudentExam
+				where ExamID = @ExamID 
+				)
+			THROW 50000,'Invalid Exam ID.', 1;	
+		if not exists(
+				select 1
+				from StudentExam
+				where StdID = @StdID
+				)
+			THROW 50000,'Invalid Student ID.', 1;	
+		else if not exists(
+				select 1
+				from QuestionPool
+				where ID = @QID
+				)
+			THROW 50000,'Invalid Question ID.', 1;	
+		else
+			begin
+					begin try
+						begin transaction
+							insert into StudentAnswer
+							values(@QID,@ExamID,@StdID,@Answer)
+							commit;
+					end try
+					begin catch
+						rollback;
+						print 'Error Occured:' + ERROR_MESSAGE();
+					end catch
+			end
+	end
+
+	EXEC sp_StoreStudentAnswer 
+		@QID = 2,
+		@ExamID = 1,
+		@StdID = 13,
+		@Answer = 'HTML'
+
+	EXEC sp_StoreStudentAnswer 
+		@QID = 3,
+		@ExamID = 2,
+		@StdID = 15,
+		@Answer = 'True'
+
+	CREATE LOGIN AdminLogin WITH PASSWORD = 'Admin@123';
+CREATE LOGIN ManagerLogin WITH PASSWORD = 'Manager@123';
+CREATE LOGIN InstructorLogin WITH PASSWORD = 'Instructor@123';
+CREATE LOGIN StudentLogin WITH PASSWORD = 'Student@123';
+
+
+---------------------------------------
+use ExaminationSystemDB
+
+--------------------------------------
+CREATE USER AdminUser FOR LOGIN AdminLogin;
+CREATE USER ManagerUser FOR LOGIN ManagerLogin;
+CREATE USER InstructorUser FOR LOGIN InstructorLogin;
+CREATE USER StudentUser FOR LOGIN StudentLogin;
+
+
+-------------------------------------------------
+
+CREATE ROLE AdminRole;
+CREATE ROLE ManagerRole;
+CREATE ROLE InstructorRole;
+CREATE ROLE StudentRole;
+
+
+----------------------------------------------
+
+EXEC sp_addrolemember 'AdminRole', 'AdminUser';
+EXEC sp_addrolemember 'ManagerRole', 'ManagerUser';
+EXEC sp_addrolemember 'InstructorRole', 'InstructorUser';
+EXEC sp_addrolemember 'StudentRole', 'StudentUser';
 
