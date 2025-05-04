@@ -77,10 +77,10 @@ as
 								THROW 50000, 'Options of Multiple Choice Questions must be at least 2.', 1;	
 						end
 				end
-				insert into QuestionPool
+				insert into QuestionPool(ID,correctAnswer,Question,Options)
 				values (@QID,@corectAnswer,@Question,@Option)
 
-				insert into QuestionType
+				insert into QuestionType(QuestionID,Type)
 				values(@QID, @Type)
 
 				commit;
@@ -91,7 +91,7 @@ as
 		end catch	
 	end
 
-	
+	EXEC sp_configure 'nested_triggers';
 ----------------------- Execution tests ----------------------
 
 --for True/False Questions
