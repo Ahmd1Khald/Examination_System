@@ -10,5 +10,5 @@ return
 		on E.ID = QP.ExamID
 		inner join StudentExam SE
 		on E.ID = SE.ExamID
-		where SE.StdID = 5@StdID
+		where SE.StdID = @StdID
 )
