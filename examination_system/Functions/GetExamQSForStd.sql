@@ -3,12 +3,12 @@ returns table
 as
 return
 (
-		select Q.Question
+		select Q.Question,Q.Options
 		from QuestionPool Q inner join QuestionPick QP
 		on Q.ID = QP.QuestionID
 		inner join Exam E
 		on E.ID = QP.ExamID
 		inner join StudentExam SE
 		on E.ID = SE.ExamID
-		where SE.StdID = @StdID
+		where SE.StdID = 5@StdID
 )
