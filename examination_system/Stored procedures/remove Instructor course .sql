@@ -30,7 +30,8 @@ as
 			begin
 					begin try
 						begin transaction
-							delete from Course
+							update Course
+							set InstructorID = null
 							where InstructorID = @InstID 
 							and ID = @CourseID;
 							PRINT 'Instructor was deleted from course successfully';
