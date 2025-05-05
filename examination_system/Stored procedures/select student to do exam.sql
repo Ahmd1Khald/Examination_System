@@ -30,4 +30,7 @@ as
 		end
 	end
 
-	exec sp_selectStudentToExam  3,3,13,2
+	exec sp_selectStudentToExam  1,1,1
+
+	select * from exam
+
