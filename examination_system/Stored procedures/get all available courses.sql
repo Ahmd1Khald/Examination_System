@@ -9,4 +9,5 @@ create proc sp_GetAllCourses
 			order by Name
 		end
 
+
 exec sp_GetAllCourses

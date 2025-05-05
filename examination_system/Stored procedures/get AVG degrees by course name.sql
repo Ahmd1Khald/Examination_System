@@ -33,4 +33,4 @@ BEGIN
     GROUP BY e.ID;
 END;
 
-exec dbo.sp_GetAVGDegreesByCrsName @CourseName = 'Network Administration';
+exec sp_GetAVGDegreesByCrsName @CourseName = 'Network Administration';

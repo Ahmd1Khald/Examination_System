@@ -1,6 +1,3 @@
-
-
-
 create proc sp_GetCoursesByInstructor @InstID int
 as
 	begin
