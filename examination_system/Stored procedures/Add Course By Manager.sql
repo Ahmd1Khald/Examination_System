@@ -1,3 +1,4 @@
+
 CREATE OR ALTER PROCEDURE usp_AddCourse
     @CourseName NVARCHAR(100),
     @Description NVARCHAR(500),
@@ -10,7 +11,8 @@ BEGIN
         BEGIN TRANSACTION;
 
       
-        IF IS_ROLEMEMBER('TrainingManager') = 0
+        IF IS_ROLEMEMBER('ManagerRole') = 0
+
         BEGIN
             RAISERROR('Access Denied! Only Training Managers can add courses.', 16, 1);
             RETURN;
@@ -46,10 +48,12 @@ BEGIN
 END;
 
 
----------------------check-----------------------------
+-----------------check------------
+
+
 EXEC usp_AddCourse 
     @CourseName = 'Data',
     @Description = 'Introduction to databases',
     @MaxDegree = 100,
     @MinDegree = 50,
-	@TrackID=100;
+    @TrackID = 11;
