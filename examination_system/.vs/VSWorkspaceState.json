@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Functions"
+    "\\Create Tables",
+    "\\Functions",
+    "\\Stored procedures",
+    "\\Views"
   ],
-  "SelectedNode": "\\EXEC Func.sql",
+  "SelectedNode": "\\Stored procedures\\Collected.sql",
   "PreviewInSolutionExplorer": false
 }
