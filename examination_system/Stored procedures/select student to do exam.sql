@@ -2,19 +2,12 @@
 
 
 create or alter proc sp_selectStudentToExam 
-		@InstID int,
 		@StdID int,
 		@ExamID int,
 		@CourseID int
 as
 	begin 
 		if not exists (
-				select 1 
-				from InstructorCourse
-				where InstructorID = @InstID and CourseID = @CourseID 
-			)
-			THROW 50000, 'Enter valid Instructor for this course.', 1;
-		else if not exists (
 				select 1 
 				from StudentCourse
 				where StudentID = @StdID and CourseID = @CourseID 
