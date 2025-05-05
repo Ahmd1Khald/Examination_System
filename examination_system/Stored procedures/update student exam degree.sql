@@ -1,6 +1,6 @@
 
 
-create proc UpdateStudentExamDegree
+create or alter proc UpdateStudentExamDegree
 		@ExamID int,
 		@StdID int,
 		@newDegree int
