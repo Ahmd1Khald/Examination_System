@@ -1,15 +1,34 @@
 -- proc to create exam and its type
 EXEC dbo.sp_CreateExamAndType  
-	@ExamType = 'Exam',
-	@date = '2025-05-2',
-	@start_time = '10:16:00',
+	@ExamType = 'Exam', ---Corrective
+	@date = '2025-05-6',
+	@start_time = '10:15:00',
 	@end_time = '12:15:00',
 	@TotalDegree = 20,
 	@CourseName = 'AI and Machine Learning'
 
+
+EXEC dbo.sp_CreateExamAndType  
+	@ExamType = 'Exam',
+	@date = '2025-05-6',
+	@start_time = '10:15:00',
+	@end_time = '12:15:00',
+	@TotalDegree = 20,
+	@CourseName = 'AI and Mach'
+
+
+	EXEC dbo.sp_CreateExamAndType  
+	@ExamType = 'Exam',
+	@date = '2025-05-6',
+	@start_time = '10:15:00',
+	@end_time = '14:15:00',
+	@TotalDegree = 20,
+	@CourseName = 'AI and Machine Learning'
+
+
 EXEC sp_CreateExamAndType  
 	@ExamType = 'Exam',
-	@date = '2025-05-2',
+	@date = '2025-05-6',
 	@start_time = '09:15:00',
 	@end_time = '07:15:00',
 	@TotalDegree = 20,
@@ -90,6 +109,15 @@ exec dbo.sp_PickQuestions
 EXEC AllowStdToExam @StdID = 2;----11
 
 
+select* from Exam 
+join StudentExam on ExamID = ID
+where StdID = 2
+
+
+EXEC AllowStdToExam @StdID = 13;
+
+
+
 -- proc to take student answer and store it
 	EXEC sp_StoreStudentAnswer 
 		@QID = 2,
@@ -137,3 +165,38 @@ EXEC sp_AddTrack
     @department_id = 10, 
     @TrainingManager_id = 5;
 GRANT EXECUTE ON dbo.sp_AddTrack TO ManagerRole;
+
+
+--delete track
+EXEC usp_DeleteTrack @track_id = 20;
+
+--- delete student 
+EXEC DeleteStudent_Prc @StudentID = 74;
+
+--- add student 
+EXEC AddStudent_Prc
+    @FName = 'Khaled',
+    @LName = 'Maher',
+    @UserID = 5,
+    @IntakeID = 2,
+    @TM_ID = 1,
+    @BranchID = 1
+
+
+--- Delete Course By Course Id 
+EXEC usp_DeleteCourse @CourseID = 26;
+GRANT EXECUTE ON dbo.usp_DeleteCourse TO ManagerRole;
+
+
+-- proc to update specific exam start and end time
+exec UpdateExamTime 
+		@ExamID = 10,
+		@Start_Time = '09:00:00',
+		@End_Time = '10:00:00'
+
+
+-- proc to update student degree in a specific exam
+exec UpdateStudentExamDegree 
+		@ExamID = 5,
+		@StdID = 17,
+		@newDegree = 12
