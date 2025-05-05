@@ -16,12 +16,6 @@ BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
 
-		IF USER!='db18494_Instructor'
-        BEGIN
-            RAISERROR('Access Denied! Only Training Managers can add students.', 16, 1);
-            RETURN;
-        END;
-
         DECLARE @MaxDegree INT = (SELECT MaxDegree FROM Course WHERE ID = @CourseID);
 
 

@@ -5,17 +5,11 @@ create or alter proc sp_CreateExamAndType
 	@start_time Time(0),
 	@end_time Time(0),
 	@TotalDegree int,
-	@CourseName nvarchar(30),
-	@UserType nvarchar(30)
+	@CourseName nvarchar(30)
 as
 begin
 	DECLARE @DurationMinutes INT = DATEDIFF(MINUTE, @start_time, @end_time);
 
-	IF ( @UserType != 'Instructor')
-        BEGIN
-            RAISERROR('Access Denied! Only Instructors can make an Exam.', 16, 1);
-            RETURN;
-        END;
 
 	if(@DurationMinutes > 120)
 		print 'The Exam duration must be two hours or less'
@@ -56,8 +50,7 @@ EXEC sp_CreateExamAndType
 	@start_time = '10:16:00',
 	@end_time = '12:15:00',
 	@TotalDegree = 80,
-	@CourseName = 'AI and Machine Learning',
-	@UserType = 'Instructor'
+	@CourseName = 'AI and Machine Learning'
 
 
 

@@ -6,12 +6,6 @@ BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
 
-        IF USER!='db18494_TrainingManager'
-        BEGIN
-            PRINT('Access Denied! Only Training Managers can delete tracks.');
-            RETURN;
-        END;
-
         DELETE FROM TRACKCOURSE 
         WHERE TrackID = @track_id;
 
@@ -29,4 +23,4 @@ END;
 
 ----------------------check delete---------------------------------
 
-EXEC usp_DeleteTrack @StudentID = 74;
+EXEC usp_DeleteTrack @track_id = 20;

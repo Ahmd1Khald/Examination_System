@@ -6,21 +6,12 @@ AS
 BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
-
-      
-     
-      
-
-    
         IF @TrackID IS NOT NULL AND NOT EXISTS (SELECT 1 FROM Track WHERE ID = @TrackID)
         BEGIN
             RAISERROR('Invalid Track ID!', 16, 1);
             RETURN;
         END;
-
-
-        
-     
+   
         IF EXISTS (
             SELECT 1 
             FROM Intake 
@@ -62,3 +53,4 @@ EXEC usp_AddIntake
 @Number = 48,
 @TrackID = 100,
 @TMID=2;
+
