@@ -2,10 +2,6 @@
   "ExpandedNodes": [
     ""
   ],
-<<<<<<< Updated upstream
-  "SelectedNode": "\\EXEC Func.sql",
-=======
-  "SelectedNode": "\\Insert Tables",
->>>>>>> Stashed changes
+  "SelectedNode": "\\Stored_Procedures.sql",
   "PreviewInSolutionExplorer": false
 }

@@ -46,7 +46,48 @@ EXEC sp_AddTrack
 --- Delete Course By Course Id 
 EXEC usp_DeleteCourse @CourseID = 26;
 
----
+
+--- check if the course exist and get top 10 students in this course 
+exec dbo.gettop10studentsbycoursename @coursename = 'database sysems';
+exec dbo.gettop10studentsbycoursename @coursename = 'introduction to programming';
+
+
+--- shows the courses an instructor teaches and the number of students in each
+exec dbo.sp_GetInstructorLoad @InstructorID = 3;
+
+
+--- check if the course exist and get summary for it if exist 
+exec dbo.sp_GetCourseExamSummary @CourseID = 90;
+exec dbo.sp_GetCourseExamSummary @CourseID = 2;
+
+--- It lists all students and whether they took a specific exam
+exec dbo.sp_ExamParticipationReport @ExamID = 1;
+
+--- returns a random set of questions according to question type 
+exec [dbo].[SelectRandomQuestionsForExam] 'Multiple Choice', 9;
+exec [dbo].[SelectRandomQuestionsForExam] 'True/False', 9;
+exec [dbo].[SelectRandomQuestionsForExam] 'Text', 9;
+
+
+--- get all courses
+exec sp_GetAllCourses
+
+--- get AVG degrees by course name
+exec sp_GetAVGDegreesByCrsName @CourseName = 'Network Administration';
+
+--- form TM name get the branches 
+PC_GetBranchFromTMName 'hany'
+
+--- from branch name get student in
+PC_GetStudentsInBranch 'main'
+
+--- from intake number get student in	
+PC_GetStudentsInIntake 43
+
+--- from student id get its degrees
+exec GetStudentExamResult 5
+
+
 
 
 

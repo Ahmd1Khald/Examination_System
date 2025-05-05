@@ -30,7 +30,7 @@ as
 		end
 	end
 
-	exec sp_selectStudentToExam
-			@StdID = 3,
-			@ExamID  = 13,
-			@CourseID = 2
+	exec sp_selectStudentToExam  1,1,1
+
+	select * from exam
+
