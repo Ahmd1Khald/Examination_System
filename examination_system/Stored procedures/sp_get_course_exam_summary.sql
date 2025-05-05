@@ -1,3 +1,4 @@
+
 create or alter procedure dbo.sp_GetCourseExamSummary
     @CourseID INT
 as
@@ -21,4 +22,4 @@ end;
 
 exec dbo.sp_GetCourseExamSummary @CourseID = 90;
 
-exec dbo.sp_GetCourseExamSummary @CourseID = 11;
+exec dbo.sp_GetCourseExamSummary @CourseID = 10;

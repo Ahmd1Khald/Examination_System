@@ -7,4 +7,5 @@ as
 		from StudentExam
 		where StdID = @StdID
 	end
+
 exec GetStudentExamResult 5
