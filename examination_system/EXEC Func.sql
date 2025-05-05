@@ -35,32 +35,23 @@ SELECT dbo.Count_Student_CorrectAnswers(2, 3) AS CorrectAnswersCount;
 ---Get Exam Duration
 SELECT dbo.Get_Exam_Duration(1) as 'Exam_Duration'
 
----Determine whether the student has passed or not
-
-SELECT CASE dbo.Is_Student_Passed(3, 11)
-           WHEN 0 THEN 'fail'
-           WHEN 1 THEN 'pass'
-           ELSE 'unknown'
-       END AS PassedStatus;
-
 ---Get Course By Track
-
-select * from FN_GetCourseByTrack(100)
+select * from FN_GetCourseByTrack(2)
 
 ---Get QS For Course By Course ID
 
-SELECT * FROM getQSforCourse(11);
+SELECT * FROM getQSforCourse(2);
 
 ---Get Course ID
 
 SELECT dbo.getCourseID('Introduction to Programming') AS CourseID;
 
 ---Get Exam QS For Student using ID
-SELECT * FROM GetExamQSForStd_FN(48);
+SELECT * FROM GetExamQSForStd_FN(2);
 
 
 --- Calculate Average Grade 
-SELECT dbo.CalculateAverageGrade_Fun(48) AS AverageGrade;
+SELECT dbo.CalculateAverageGrade_Fun(2) AS AverageGrade;
 --- Calculate Max Grade 
 SELECT dbo.CalculateMaxGrade_Fun(2) AS [Max Degree];
 

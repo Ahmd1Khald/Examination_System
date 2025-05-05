@@ -5,7 +5,8 @@ create or alter proc AddCourse
 	@name nvarchar(30),
 	@Description nvarchar(max),
 	@MaxDegree int,
-	@MinDegree int
+	@MinDegree int,
+	@InstID int
 as
 	begin
 		if exists(
@@ -19,7 +20,7 @@ as
 				begin try
 					begin transaction
 						insert into Course
-						values (@name,@Description,@MaxDegree,@MinDegree)
+						values (@name,@Description,@MaxDegree,@MinDegree,@InstID)
 						commit;
 				end try
 				begin catch
@@ -29,4 +30,4 @@ as
 			end
 	end
 
-exec AddCourse 'English', 'A language course that improve student skills',100,40 
+exec AddCourse 'English', 'A language course that improve student skills',100,40,10 

@@ -4,19 +4,20 @@ CREATE OR ALTER PROCEDURE usp_AddCourse
     @Description NVARCHAR(500),
     @MaxDegree INT,
     @MinDegree INT,
-	@TrackID INT
+	@TrackID INT,
+	@InstID int
 AS
 BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
 
       
-        IF IS_ROLEMEMBER('ManagerRole') = 0
-
-        BEGIN
-            RAISERROR('Access Denied! Only Training Managers can add courses.', 16, 1);
-            RETURN;
-        END;
+        ---IF IS_ROLEMEMBER('ManagerRole') = 0
+--
+      ---  BEGIN
+       ---     RAISERROR('Access Denied! Only Training Managers can add courses.', 16, 1);
+       ---     RETURN;
+       --- END;
 
         
         IF EXISTS (SELECT 1 FROM Course WHERE Name = @CourseName)
@@ -31,8 +32,14 @@ BEGIN
             RETURN;
         END;
 
-        INSERT INTO Course (Name, Description, MaxDegree, MinDegree)
-        VALUES (@CourseName, @Description, @MaxDegree, @MinDegree);
+		IF NOT EXISTS (SELECT 1 FROM Person.Instructor WHERE ID = @InstID)
+        BEGIN
+            RAISERROR('Invalid Instructor ID!', 16, 1);
+            RETURN;
+        END;
+
+        INSERT INTO Course (Name, Description, MaxDegree, MinDegree,InstructorID)
+        VALUES (@CourseName, @Description, @MaxDegree, @MinDegree,@InstID);
 
 		DECLARE @NewCourseID INT = SCOPE_IDENTITY();
 
@@ -56,4 +63,5 @@ EXEC usp_AddCourse
     @Description = 'Introduction to databases',
     @MaxDegree = 100,
     @MinDegree = 50,
-    @TrackID = 11;
+    @TrackID = 2,
+	@InstID = 2;

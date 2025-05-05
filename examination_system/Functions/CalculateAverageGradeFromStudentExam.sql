@@ -4,7 +4,7 @@ RETURNS DECIMAL(5,2)
 AS  
 BEGIN  
     DECLARE @AvgGrade DECIMAL(5,2);  
-    SELECT @AvgGrade = AVG(student_exam_Degree)  
+    SELECT @AvgGrade = AVG(StdExamDegree)  
     FROM StudentExam  
     WHERE StdID = @StudentID;  
     RETURN @AvgGrade;  

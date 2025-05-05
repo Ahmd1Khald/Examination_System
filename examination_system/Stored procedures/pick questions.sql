@@ -52,5 +52,5 @@ as
 	exec sp_PickQuestions
 			@QSID = 38,
 			@ExamID = 8,
-			@InstID = 1,
+			@InstID = 2,
 			@Degree = 5

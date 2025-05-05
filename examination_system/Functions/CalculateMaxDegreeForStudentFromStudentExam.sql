@@ -9,7 +9,7 @@ AS
 BEGIN
     DECLARE @MaxGrade INT;
 
-    SELECT @MaxGrade = MAX(student_exam_Degree)
+    SELECT @MaxGrade = MAX(StdExamDegree)
     FROM StudentExam
     WHERE ExamID = @ExamID;
 

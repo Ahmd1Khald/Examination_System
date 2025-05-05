@@ -3,7 +3,7 @@ RETURNS BIT
 AS
 BEGIN
     DECLARE @Result BIT = 0
-    DECLARE @Average FLOAT = dbo.CalculateAverageGradeon_speceficCourse(@StdID, @CourseID)
+    DECLARE @Average FLOAT = dbo.CalculateAverageGrade_Fun(@StdID, @CourseID)
     DECLARE @MinDegree INT
 
     SELECT @MinDegree = MinDegree FROM Course WHERE ID = @CourseID
@@ -13,6 +13,9 @@ BEGIN
 
     RETURN @Result
 END;
+
+
+
 SELECT dbo.Is_Student_Passed(48, 11) AS PassedStatus;
 
 --------------pass or failed
