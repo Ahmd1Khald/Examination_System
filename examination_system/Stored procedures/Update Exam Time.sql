@@ -1,7 +1,10 @@
 
 
 
-create or alter proc UpdateExamTime @ExamID int,@Start_Time Time(0),@End_Time Time(0)
+create or alter proc UpdateExamTime 
+			@ExamID int,
+			@Start_Time Time(0),
+			@End_Time Time(0)
 as
 	begin
 	DECLARE @DurationMinutes INT = DATEDIFF(MINUTE, @start_time, @end_time);
@@ -17,6 +20,7 @@ as
 						[Year] = Year(GETDATE())
 						where ID = @ExamID
 						commit;
+						print 'Exam time updated successfully'
 				end try
 				begin catch
 					rollback;
@@ -25,4 +29,7 @@ as
 			end
 	end
 
-exec UpdateExamTime 10,'09:00:00','10:00:00'
+exec UpdateExamTime 
+		@ExamID = 10,
+		@Start_Time = '09:00:00',
+		@End_Time = '10:00:00'

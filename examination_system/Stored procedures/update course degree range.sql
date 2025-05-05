@@ -32,4 +32,7 @@ as
 			end
 	end
 
-exec UpdateCourseDegreeRange 5,90,50
+exec UpdateCourseDegreeRange 
+		@CourseID = 5,
+		@MaxDegree = 90,
+		@MinDegree = 50

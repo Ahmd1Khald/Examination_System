@@ -50,17 +50,14 @@ end
 go
 
 
-EXEC sp_CreateExamAndType
-	'Exam',
-	'2025-05-2',
-	'10:16:00',
-    '12:15:00',
-	 80,
-	 'AI and Machine Learning',
-	 'Instructor'
-   REVERT;
-   
-
+EXEC sp_CreateExamAndType  
+	@ExamType = 'Exam',
+	@date = '2025-05-2',
+	@start_time = '10:16:00',
+	@end_time = '12:15:00',
+	@TotalDegree = 80,
+	@CourseName = 'AI and Machine Learning',
+	@UserType = 'Instructor'
 
 
 

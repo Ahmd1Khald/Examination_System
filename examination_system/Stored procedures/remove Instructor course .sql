@@ -2,7 +2,9 @@
 
 
 
-create or alter proc RemoveInstructorCourse @InstID int, @CourseID int
+create or alter proc RemoveInstructorCourse
+			@InstID int,
+			@CourseID int
 as
 	begin
 				if not exists (
@@ -19,8 +21,8 @@ as
 			THROW 50000, 'Invalid Instructor ID.', 1;
 		else if not exists (
 				select 1
-				from InstructorCourse
-				where InstructorID = @InstID and CourseID = @CourseID
+				from Course
+				where InstructorID = @InstID and ID = @CourseID
 				)
 			THROW 50000, 'There is no Instructor teaches that course.', 1;
 
@@ -28,9 +30,9 @@ as
 			begin
 					begin try
 						begin transaction
-							delete from InstructorCourse
+							delete from Course
 							where InstructorID = @InstID 
-							and CourseID = @CourseID;
+							and ID = @CourseID;
 							PRINT 'Instructor was deleted from course successfully';
 							commit;
 					end try
@@ -41,4 +43,6 @@ as
 				end
 	end
 
-exec RemoveInstructorCourse 4,9
+exec RemoveInstructorCourse
+		@InstID = 1,
+		@CourseID = 2

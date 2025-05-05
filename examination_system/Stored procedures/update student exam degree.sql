@@ -1,6 +1,9 @@
 
 
-create proc UpdateStudentExamDegree @ExamID int, @StdID int, @newDegree int
+create proc UpdateStudentExamDegree
+		@ExamID int,
+		@StdID int,
+		@newDegree int
 as
 	begin
 		declare @TotalDegree int = (select TotalDegree
@@ -16,7 +19,7 @@ as
 					set StdExamDegree = @newDegree
 					where ExamID = @ExamID and StdID = @StdID
 					commit;
-					print 'Student selected to exam successfully'
+					print 'Student degree updated succefully'
 			end try
 			begin catch
 				rollback;
@@ -25,4 +28,7 @@ as
 		end
 	end
 
-exec UpdateStudentExamDegree 5, 17,12
+exec UpdateStudentExamDegree 
+		@ExamID = 5,
+		@StdID = 17,
+		@newDegree = 12
