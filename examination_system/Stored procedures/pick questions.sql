@@ -24,8 +24,8 @@ as
 
 		if not exists (
 			SELECT 1
-			FROM InstructorCourse
-			WHERE InstructorID = @InstID AND CourseID = @ExamCourseID
+			FROM Course
+			WHERE InstructorID = @InstID AND ID = @ExamCourseID
 			)
 			 THROW 50000, 'Instructor and Exam should be of the same Course.', 1;
 		else if not exists (select 1 from @QuestionIDs where ID = @QSID)
@@ -48,5 +48,9 @@ as
 				end catch
 			end
 	end
-	select * from getQSforCourse(18)
-	exec sp_PickQuestions 38,8, 1,5
+
+	exec sp_PickQuestions
+			@QSID = 38,
+			@ExamID = 8,
+			@InstID = 1,
+			@Degree = 5

@@ -36,6 +36,7 @@ as
 						begin transaction
 							insert into StudentAnswer
 							values(@QID,@ExamID,@StdID,@Answer)
+							print 'your answer was added succefully'
 							commit;
 					end try
 					begin catch

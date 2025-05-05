@@ -21,6 +21,7 @@ as
 				update QuestionPool
 				set correctAnswer = @newCorrectAnswer
 				where ID = @QuestionID
+				print 'New answer updated succefully'
 				commit;
 		end try
 		begin catch
