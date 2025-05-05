@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Views",
+    "\\Views\\Exams"
   ],
-  "SelectedNode": "\\Stored_Procedures.sql",
+  "SelectedNode": "\\EXEC.sql",
   "PreviewInSolutionExplorer": false
 }

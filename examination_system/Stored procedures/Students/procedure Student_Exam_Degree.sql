@@ -3,6 +3,7 @@ create or alter procedure Student_Exam_Degree
 @ExamID INT
 as
 begin
+	 declare @CourseID int = (Select courseid from Exam where id = @ExamID)
      declare @Student_Exam_Degree int 
      set @Student_Exam_Degree = dbo.Calculate_Student_Degree(@StudentID,@ExamID)
      if exists (
@@ -13,13 +14,13 @@ begin
      )
      begin 
      update StudentExam
-     set student_exam_Degree = @Student_Exam_Degree
+     set StdExamDegree = @Student_Exam_Degree
      where StdID=@StudentID and ExamID = @ExamID
      end 
      else 
      begin 
-     insert into StudentExam(StdID,ExamID,student_exam_Degree)
-     values (@StudentID ,@ExamID,@Student_Exam_Degree)
+     insert into StudentExam(StdID,ExamID,StdExamDegree,courseid)
+     values (@StudentID ,@ExamID,@Student_Exam_Degree,@CourseID)
      end
 end
 

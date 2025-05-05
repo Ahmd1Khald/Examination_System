@@ -10,6 +10,11 @@ as
 begin
 	DECLARE @DurationMinutes INT = DATEDIFF(MINUTE, @start_time, @end_time);
 
+	if(@DurationMinutes < 0)
+	begin
+		RAISERROR('End Time should by after Start Time', 16, 1);
+		RETURN;
+	end
 
 	if(@DurationMinutes > 120)
 		print 'The Exam duration must be two hours or less'
@@ -47,9 +52,9 @@ go
 EXEC sp_CreateExamAndType  
 	@ExamType = 'Exam',
 	@date = '2025-05-2',
-	@start_time = '10:16:00',
-	@end_time = '12:15:00',
-	@TotalDegree = 80,
+	@start_time = '09:15:00',
+	@end_time = '07:15:00',
+	@TotalDegree = 20,
 	@CourseName = 'AI and Machine Learning'
 
 

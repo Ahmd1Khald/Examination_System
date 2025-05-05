@@ -1,6 +1,7 @@
 CREATE OR ALTER VIEW Person.vw_StudentExamDegrees 
 AS
 SELECT 
+	S.ID,
    S.FName + ' ' + S.LName AS [Student Full Name], 
    SE.StdExamDegree AS [Exam Degree],
    Course.Name
