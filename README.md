@@ -75,6 +75,9 @@ The **Examination System Database** is a SQL Server-based project designed to ma
   - Full database structure and object creation.
 - **Test Queries & Results**: Verification of database integrity and functionality.
 - **User Accounts & Credentials**: Predefined accounts and their roles.
+## Trello Board
+
+https://trello.com/b/YwcHRBH2/iti-minya-net-q3-24-25-team-4
 
 
 ## Trello Board
@@ -93,4 +96,4 @@ The **Examination System Database** is a SQL Server-based project designed to ma
 
 ## Contact
 
-For any inquiries or contributions, please reach out to [ahmed.khaled.sayed2000@gmail.com].
+For any inquiries or contributions, please reach out to [ahkhno0120@gmail.com].
