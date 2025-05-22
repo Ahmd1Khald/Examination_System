@@ -1,5 +1,5 @@
-Create table UserTable(
-ID int identity(100,10),
+Create table Person.UserTable(
+ID int identity(10,10),
 [Name] nvarchar(20) not null,
 [Password] nvarchar(20) not null,
 [Role] nvarchar(20) not null,

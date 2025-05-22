@@ -9,5 +9,5 @@ constraint FK_StudentCourse_Course_courseID foreign key (CourseID)
 references Course(ID),
 
 constraint FK_StudentCourse_Student_studentID foreign key (StudentID)
-references Student(ID),
+references Person.Student(ID),
 )

@@ -14,6 +14,6 @@ create table StudentAnswer
 	references Exam(ID) on delete cascade,
 
 	constraint FK_StudentAnswer_Student_StdID foreign key (StdID) 
-	references Student(ID) on delete cascade
+	references Person.Student(ID) on delete cascade
 
 )
